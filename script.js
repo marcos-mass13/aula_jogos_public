@@ -1,3 +1,4 @@
+//codigo para criação do menu
 const menu = document.getElementById("menu");
 const fase = document.getElementById("fase");
 const btnJogar = document.getElementById("btnJogar");
@@ -10,4 +11,5 @@ btnJogar.addEventListener("click",()=>{
 btnVoltar.addEventListener("click",()=>{
     fase.classList.add("oculto");
     menu.classList.remove("oculto");
+
 })
