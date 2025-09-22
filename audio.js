@@ -1,9 +1,9 @@
-const btnVoltar = document.getElementById('btnVoltar');
-btnVoltar.addEventListener('click', () => { window.location.href = "index.html"; });
+// const btnVoltar = document.getElementById('btnVoltar');
+// btnVoltar.addEventListener('click', () => { window.location.href = "index.html"; });
 
-const musicaFundo = document.getElementById("musicaFundo");
-musicaFundo.volume = 0.5;
-musicaFundo.play().cath(() => { console.log("erro"); });
+// const musicaFundo = document.getElementById("musicaFundo");
+// musicaFundo.volume = 0.5;
+// musicaFundo.play().cath(() => { console.log("erro"); });
 const somPulo = document.getElementById("somPulo");
 const somTiro = document.getElementById("somTiro");
 document.addEventListener("keydown", (event) => {

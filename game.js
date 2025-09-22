@@ -1,5 +1,5 @@
-let player = new Jogador("Herói", 100, 0, 100, 70, 70, imgJogador);
-let goblin = new Inimigo("Goblin", 400, 200, 20, 70, 70, imgGoblin);
+let player = new Jogador("Herói", 100, 0, 100, 70, 70, "green");
+let goblin = new Inimigo("Goblin", 400, 200, 20, 70, 70, "red");
 
 let acoes = [];
 acoes.push("mover_direita");
