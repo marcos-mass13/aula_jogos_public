@@ -9,6 +9,22 @@
 </head>
 
 <body>
+    <div class="game-wrpper">
+        <div class="hud-top">
+            <div class="panel">
+                <div class="hearts" id="hearts"></div>
+            </div>
+            <div class="panel">
+                <div class="coin-icon">
+                    <svg viewBox="0 0 64 64">
+                        <circle cx="32" cy="32" r="28" fill="gold" stroke="brown" stroke-width="4" />
+                    </svg>
+                </div>
+                <div class="coin-count" id="coin-count">0</div>
+            </div>
+        </div>
+    </div>
+
 
     <audio src="audio/musicaFundo.mp3" id="musicaFundo"></audio>
     <audio src="audio/somTiro.mp3" id="somTiro"></audio>
@@ -18,10 +34,8 @@
     <script src="entidade.js"></script>
     <script src="inimigo.js"></script>
     <script src="jogador.js"></script>
-    <script src="game.js"></script>
-
-
     <script src="audio.js"></script>
+    <script src="game.js"></script>
 </body>
 
 

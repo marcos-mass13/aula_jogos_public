@@ -1,12 +1,14 @@
 // const btnVoltar = document.getElementById('btnVoltar');
 // btnVoltar.addEventListener('click', () => { window.location.href = "index.html"; });
 
-// const musicaFundo = document.getElementById("musicaFundo");
-// musicaFundo.volume = 0.5;
+const musicaFundo = document.getElementById("musicaFundo");
+
+
 // musicaFundo.play().cath(() => { console.log("erro"); });
 const somPulo = document.getElementById("somPulo");
 const somTiro = document.getElementById("somTiro");
 document.addEventListener("keydown", (event) => {
+    mfPlay()
     if (event.code === "Space") {
         somPulo.currentTime = 0;
         somPulo.play();
@@ -17,3 +19,9 @@ document.addEventListener("keydown", (event) => {
         console.log("jogador atirou");
     }
 })
+window.onload = mfPlay();
+
+function mfPlay() {
+    // musicaFundo.currentTime = 0;
+    musicaFundo.play();
+}
