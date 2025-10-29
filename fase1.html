@@ -23,6 +23,17 @@
                 <div class="coin-count" id="coin-count">0</div>
             </div>
         </div>
+
+        <div class="play-area">
+            <canvas id="gameCanvas" height="400" width="600" style="border: 1px solid white;"></canvas>
+        </div> 
+            
+        <div class="controls">
+            <button id="btn-damage"></button>
+            <button id="btn-heal"></button>
+            <button id="btn-coin"></button>
+            <button id="btn-reset"></button>
+        </div>   
     </div>
 
 
@@ -35,6 +46,11 @@
     <script src="inimigo.js"></script>
     <script src="jogador.js"></script>
     <script src="audio.js"></script>
+
+    <script src="hud/GameState.js"></script>
+    <script src="hud/HudView.js"></script>
+    <script src="hud/hud.js"></script>
+
     <script src="game.js"></script>
 </body>
 
