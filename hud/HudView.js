@@ -5,8 +5,6 @@ class HudView {
     this.heartsEl = heartsEl;
     this.coinsEl = coinsEl;
 
-    // sempre que o estado mudar, redesenha
-    this.state.onChange(() => this.render());
 
     // render inicial
     this.render();
