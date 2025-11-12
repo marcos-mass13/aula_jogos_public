@@ -7,8 +7,6 @@ canvas.height = 400;
 // Criando personagens
 let colorPlayer = "green";
 let tamanho = 70;
-const imgPlayer = new Image();
-imgPlayer.src = 'img/player.png';
 let player = new Jogador("Herói", 10, 10, 100, tamanho, tamanho, colorPlayer);
 
 let hub = new Hud();
@@ -68,4 +66,5 @@ function atirar() {
   projetil.desenhar();
 
   projeteis.push(projetil);
+
 }
