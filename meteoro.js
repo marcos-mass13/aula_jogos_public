@@ -1,4 +1,4 @@
-class Projetil {
+class Meteoro {
     constructor(x, y, cor, tamanho, velocidade) {
         this.x = x;
         this.y = y;
@@ -8,19 +8,18 @@ class Projetil {
     }
     desenhar() {
         ctx.fillStyle = this.cor;
-        ctx.fillRect(this.x, this.y, this.tamanho, this.tamanho);
-        // ctx.drawImage(this.image, this.x, this.y);
-
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.tamanho / 2, 0, 2 * Math.PI);
+        ctx.fill();
     }
     mover(dx, dy) {
         this.x += dx;
         this.y += dy;
     }
-    atualizar(ctx, hud) {
+    atualizar(ctx, player, hud) {
         this.desenhar(ctx);
-        // Colisão com o meteoro
-        console.log("Atingiu o meteoro!");
-        hud.addCoin();
+        player.vida -= 20;
+        hud.damage();
     }
 }
 

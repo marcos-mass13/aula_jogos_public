@@ -3,19 +3,31 @@ class GameState {
         this.maxhp = maxhp;
         this.hp = hp;
         this.coins = coins;
+        this.listeners = [];  // funções que reagem a mudanças
     }
-
+    // Registrar quem vai "escutar" mudanças de estado
+    onChange(callback) {
+        this.listeners.push(callback);
+    }
+    // Dispara atualização para todos ouvintes
+    notify() {
+        this.listeners.forEach(cb => cb(this));
+    }
     damage(valor = 1) {
         this.hp = Math.max(0, this.hp - valor);
+        this.notify();
     }
     heal(valor = 1) {
         this.hp = Math.max(0, this.hp + valor);
+        this.notify();
     }
-    reset(){
+    reset() {
         this.hp = this.maxhp;
         this.coins = 0;
+        this.notify();
     }
-    addCoin(valor =1){
+    addCoins(valor = 1) {
         this.coins += valor;
+        this.notify();
     }
 }

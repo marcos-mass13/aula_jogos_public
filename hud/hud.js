@@ -1,5 +1,5 @@
 var state = new GameState({ maxhp: 5, hp: 5, coins: 0 });
-var hudView = new HudView({
+new HudView({
     state,
     heartsEl: document.getElementById("hearts"),
     coinsEl: document.getElementById("coin-count")
@@ -7,8 +7,8 @@ var hudView = new HudView({
 
 
 class Hud {
-    damage() { gamestate.damage(); }
-    restore() { gamestate.heal(); }
-    reset() { gamestate.reset(); }
-    addCoin() { gamestate.addCoins(); }
+    damage() { state.damage(); }
+    restore() { state.heal(); }
+    reset() { state.reset(); }
+    addCoin() { state.addCoins(); }
 }

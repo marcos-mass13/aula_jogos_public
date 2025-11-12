@@ -23,9 +23,17 @@
                 <div class="coin-count" id="coin-count">0</div>
             </div>
         </div>
-        <div class="game-area">
-            <canvas id="game-area" style="border: 1px solid black;">                
+        <div class="play-area">
+            <canvas id="game-area" width="800" height="400" style="border: 1px solid black;">
             </canvas>
+        </div>
+        <!-- Controles de teste -->
+        <div class="controls" style="display: none;">
+        <!-- <div class="controls"> -->
+            <button id="btn-damage">Dano (J)</button>
+            <button id="btn-heal">Cura (H)</button>
+            <button id="btn-coin">+1 Moeda (K)</button>
+            <button id="btn-reset">Reset (L)</button>
         </div>
     </div>
 
@@ -38,6 +46,7 @@
     <script src="entidade.js"></script>
     <script src="inimigo.js"></script>
     <script src="jogador.js"></script>
+    <script src="meteoro.js"></script>
     <script src="projetil.js"></script>
     <script src="audio.js"></script>
     <script src="hud/GameState.js"></script>
