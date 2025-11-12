@@ -3,7 +3,6 @@
 
 const musicaFundo = document.getElementById("musicaFundo");
 
-
 // musicaFundo.play().cath(() => { console.log("erro"); });
 const somPulo = document.getElementById("somPulo");
 const somTiro = document.getElementById("somTiro");
@@ -19,7 +18,9 @@ document.addEventListener("keydown", (event) => {
         console.log("jogador atirou");
     }
 })
-window.onload = mfPlay();
+
+// window.onload = mfPlay(); incorreto 
+window.onload = mfPlay;
 
 function mfPlay() {
     // musicaFundo.currentTime = 0;

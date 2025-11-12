@@ -12,12 +12,13 @@ class Entidade {
   mover(dx, dy) {
     this.x += dx;
     this.y += dy;
-    console.log(`${this.nome} se moveu para (${this.x}, ${this.y})`);
+    // console.log(`${this.nome} se moveu para (${this.x}, ${this.y})`);
   }
 
   desenhar(){
     ctx.fillStyle = this.cor
-    ctx.fillRect(this.x,this.y,h,w);
+    // ctx.fillRect(this.x,this.y,h,w); incorreto 
+    ctx.fillRect(this.x,this.y,this.h,this.w); // correto
   }
 
 }

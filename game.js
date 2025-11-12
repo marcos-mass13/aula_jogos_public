@@ -1,35 +1,71 @@
-let canvas = document.getElementById("gameCanvas");
-let ctx = canvas.getContext("2d");
+var canvas = document.getElementById("game-area");
+var ctx = canvas.getContext("2d");
 
-let colorPlayer = "green";
-let colorGoblin = "red";
-
-let player = new Jogador("Herói", 100, 0, 100, 70, 70, colorPlayer);
-let goblin = new Inimigo("Goblin", 400, 200, 20, 70, 70, colorGoblin);
 canvas.width = 600;
 canvas.height = 400;
-window.onload = desenharFase();
-function desenharFase() {
-    player.desenhar();
-    goblin.desenhar();
-    colisao();
+
+// Criando personagens
+let colorPlayer = "green";
+let tamanho = 70;
+const imgPlayer = new Image();
+imgPlayer.src = 'img/player.png';
+let player = new Jogador("Herói", 10, 10, 100, tamanho, tamanho, colorPlayer);
+
+let hub = new Hud();
+
+let projeteis = [];
+
+window.onload = desenharCena();
+
+function desenharCena() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = projeteis.length - 1; i >= 0; i--) {
+    let p = projeteis[i];
+    console.log("numero de tiros: "+projeteis.length);
+    p.desenhar();
+
+    // mover o projetil
+    p.x += p.velocidade;
+
+    // remover se sair da tela
+    if (p.x > canvas.width) {
+      projeteis.splice(i, 1);
+      continue;
+    }
+
+  }
+  
+  player.desenhar();
 }
+
 document.addEventListener("keydown", function (event) {
-    if (event.key == "w") player.mover(0, 5);
-    if (event.key == "s") player.mover(0, -5);
-    if (event.key == "a") player.mover(-5, 0);
-    if (event.key == "d") player.mover(5, 0);
-    desenharFase();
+  if (event.key === "d") player.mover(5, 0);
+  if (event.key === "a") player.mover(-5, 0);
+  if (event.key === "w") player.mover(0, -5);
+  if (event.key === "s") player.mover(0, 5);
+  if (event.code === "Enter") atirar();
+  desenharCena();
+  gameOver();
 })
 
-function colisao() {
-    if (player.x < goblin.x + goblin.tamanho &&
-        player.x + player.tamanho > goblin.x &&
-        player.y < goblin.y + goblin.tamanho &&
-        player.y + player.tamanho > goblin.y) {
-        player.x -= 20;
-        player.y -= 20;
-        hud.hudDamage();
-        desenharFase();
-    }
+
+function gameOver() {
+  if (player.vida <= 0) {
+    alert("Game Over! O jogador foi derrotado.");
+    window.location.reload();
+  }
+}
+
+
+function atirar() {
+  let projetil = new Projetil(
+    player.x + player.h,
+    player.y + player.w / 2 + 10,
+    "yellow",
+    10,
+    10);
+  projetil.desenhar();
+
+  projeteis.push(projetil);
 }

@@ -1,24 +1,21 @@
 class GameState {
-    constructor({ maxhp = 5, hp = 5, coins = 0 } = {}) {
+    constructor({ maxhp = 5, hp = 5, coins }) {
         this.maxhp = maxhp;
         this.hp = hp;
         this.coins = coins;
     }
 
-    damage(i = 1) {
-        this.hp = Math.max(0, this.hp - i);
+    damage(valor = 1) {
+        this.hp = Math.max(0, this.hp - valor);
     }
-
-    heal(i = 1) {
-        this.hp = Math.min(this.maxhp, this.hp + i);
+    heal(valor = 1) {
+        this.hp = Math.max(0, this.hp + valor);
     }
-
     reset(){
         this.hp = this.maxhp;
         this.coins = 0;
     }
-    
-    addCoins(i=1){
-        this.coins +=i;
+    addCoin(valor =1){
+        this.coins += valor;
     }
 }
